@@ -14,6 +14,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about/">About</a>
                     </li>
+
+                    {{#if user}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,16 +27,28 @@
                             
                         </div>
                     </li>
+                    {{/if}}
                 </ul>
+                {{#unless user}}
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Login</a>
+                        <a href="/user/login" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Register</a>
+                        <a href="/user/signup" class="nav-link">Register</a>
                     </li>
 
                 </ul>
+                {{/unless}}
+                {{#if user}}
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item">
+                        <a href="/user/logout" class="nav-link">Log Out</a>
+                    </li>
+
+                </ul>
+                {{/if}}
             </div>
         </div>
     </div>

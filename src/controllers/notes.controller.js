@@ -11,7 +11,7 @@ notesController.createNewNote = async (req, res) => {
     description: req.body.description,
   });
   await newNote.save();
-  req.flash('success_msg', 'Note Added Succesfully');
+  req.flash("success_msg", "Note Added Succesfully");
   res.redirect("/notes");
 };
 notesController.renderAllNotes = async (req, res) => {
@@ -25,12 +25,12 @@ notesController.renderEditForm = async (req, res) => {
 notesController.updateNote = async (req, res) => {
   const { title, description } = req.body;
   await Note.findByIdAndUpdate(req.params.id, { title, description });
-  req.flash('success_msg','Note Updated Succesfully');
+  req.flash("success_msg", "Note Updated Succesfully");
   res.redirect("/notes");
 };
 notesController.deleteNote = async (req, res) => {
   await Note.findByIdAndDelete(req.params.id);
-  req.flash('success_msg','Note Deletted succesfully');
+  req.flash("success_msg", "Note Deletted succesfully");
   res.redirect("/notes");
 };
 
